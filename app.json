@@ -1,0 +1,24 @@
+{
+  "name": "test-app",
+  "type": "app",
+  "defaultPage": "home",
+  "config": {
+    "config": {
+      "parameters": [],
+      "script": ""
+    },
+    "modules": [],
+    "auth": {
+      "enabled": false,
+      "mockedUserAccounts": []
+    },
+    "environments": [],
+    "properties": {},
+    "themes": []
+  },
+  "directories": null,
+  "externalScripts": [],
+  "externalStylesheets": [],
+  "localScripts": [],
+  "localStylesheets": []
+}

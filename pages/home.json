@@ -1,0 +1,198 @@
+{
+  "name": "home",
+  "type": "page",
+  "url": "/home",
+  "params": {},
+  "variables": [
+    {
+      "name": "values",
+      "description": "",
+      "type": "object",
+      "properties": [
+        {
+          "name": "value1",
+          "description": "",
+          "type": "property",
+          "value": "\"default\""
+        }
+      ]
+    },
+    {
+      "name": "handleOnClick",
+      "description": "",
+      "type": "method",
+      "body": "$ctrl.values.value1 = 'reset'",
+      "invokeOnLoad": false,
+      "isAsync": false,
+      "returnType": {
+        "name": "any"
+      },
+      "parameters": [
+        "event"
+      ],
+      "watch": []
+    },
+    {
+      "name": "selectedValue",
+      "description": "",
+      "type": "property",
+      "value": ""
+    },
+    {
+      "name": "handleSelectedValueChange",
+      "description": "",
+      "type": "method",
+      "body": "await $ctrl.setValueAsync()",
+      "invokeOnLoad": false,
+      "isAsync": true,
+      "returnType": {
+        "name": "any"
+      },
+      "parameters": [],
+      "watch": [
+        "$ctrl.selectedValue"
+      ]
+    },
+    {
+      "name": "setValueAsync",
+      "description": "",
+      "type": "method",
+      "body": "await $ctrl.$timeout(1000)\r\n$ctrl.values.value1 = $ctrl.selectedValue",
+      "invokeOnLoad": false,
+      "isAsync": true,
+      "returnType": {
+        "name": "any"
+      },
+      "parameters": [],
+      "watch": []
+    },
+    {
+      "name": "$timeout",
+      "type": "service"
+    }
+  ],
+  "children": [
+    {
+      "name": "Button",
+      "nodeName": "bln-button",
+      "elementId": "",
+      "attributes": [
+        {
+          "property": "core",
+          "value": ""
+        }
+      ],
+      "classList": [],
+      "conditionalClasses": [],
+      "conditionalStyles": [],
+      "contentType": "text",
+      "displayExpression": "",
+      "events": {},
+      "iterate": {
+        "array": "",
+        "variable": "",
+        "trackByIndex": false
+      },
+      "styles": [],
+      "children": [],
+      "comments": "",
+      "type": "core-component",
+      "expressions": [
+        {
+          "expression": "\"Reset\"",
+          "to": "label"
+        },
+        {
+          "expression": "$ctrl.handleOnClick(event)",
+          "to": "onClick"
+        }
+      ]
+    },
+    {
+      "name": "Dropdown",
+      "nodeName": "bln-dropdown",
+      "elementId": "",
+      "attributes": [
+        {
+          "property": "core",
+          "value": ""
+        }
+      ],
+      "classList": [],
+      "conditionalClasses": [],
+      "conditionalStyles": [],
+      "contentType": "text",
+      "displayExpression": "",
+      "events": {},
+      "iterate": {
+        "array": "",
+        "variable": "",
+        "trackByIndex": false
+      },
+      "styles": [],
+      "children": [],
+      "comments": "",
+      "type": "core-component",
+      "expressions": [
+        {
+          "expression": "$ctrl.selectedValue",
+          "to": "value"
+        },
+        {
+          "expression": "[{\n        label: \"Option 1\",\n        value: \"value1\"\n    },\n    {\n        label: \"Option 2\",\n        value: \"value2\"\n    },\n    {\n        label: \"Option 3\",\n        value: \"value3\"\n    }\n]",
+          "to": "values"
+        },
+        {
+          "expression": "\"Values\"",
+          "to": "label"
+        }
+      ],
+      "formControl": {
+        "modelName": "value"
+      }
+    },
+    {
+      "name": "div",
+      "nodeName": "div",
+      "elementId": "",
+      "attributes": [],
+      "classList": [],
+      "conditionalClasses": [],
+      "conditionalStyles": [],
+      "contentType": "text",
+      "displayExpression": "",
+      "events": {},
+      "iterate": {
+        "array": "",
+        "variable": "",
+        "trackByIndex": false
+      },
+      "styles": [
+        {
+          "property": "font-size",
+          "value": "20px",
+          "enabled": true
+        },
+        {
+          "property": "border-style",
+          "value": "solid",
+          "enabled": true
+        },
+        {
+          "property": "padding",
+          "value": "20px",
+          "enabled": true
+        }
+      ],
+      "children": [
+        {
+          "name": "text",
+          "nodeName": "text",
+          "textContent": "$ctrl.values.value1",
+          "evaluate": true
+        }
+      ],
+      "comments": ""
+    }
+  ]
+}
